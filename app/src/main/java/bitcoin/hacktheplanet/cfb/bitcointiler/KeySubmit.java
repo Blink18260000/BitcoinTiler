@@ -59,6 +59,7 @@ public class KeySubmit extends AppCompatActivity {
         if (pkey.matches("^[13][a-km-zA-HJ-NP-Z0-9]{26,33}$")) {
             Intent pi = new Intent(this, MainActivity.class);
             pi.putExtra(EXTRA_MESSAGE, pkey);
+            publicKey.setText("");
             startActivity(pi);
             return true;
         } else {

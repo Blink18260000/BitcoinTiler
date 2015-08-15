@@ -17,12 +17,12 @@
         /> -->
 
 
-    <Button
+    <!--<Button
         android:layout_below="@+id/QR_webview"
         android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="The Button"
-        android:id="@+id/whats_hot_click" />
+        android:id="@+id/whats_hot_click" /> -->
 
 </RelativeLayout>
