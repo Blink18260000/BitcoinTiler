@@ -7,14 +7,18 @@
     tools:context="bitcoin.hacktheplanet.cfb.bitcointiler.KeySubmit">
 
     <TextView
+        android:id="@+id/KStxt"
         android:textSize="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"
         android:layout_centerHorizontal="true"
-        android:layout_above="@+id/key_enter"
-        android:text="@string/enter_key" android:layout_width="wrap_content"
+        android:text="@string/enter_key"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
     <EditText
-        android:layout_centerInParent="true"
+        android:layout_below="@+id/KStxt"
+        android:layout_centerHorizontal="true"
         android:id="@+id/key_enter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />

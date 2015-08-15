@@ -1,5 +1,7 @@
 package bitcoin.hacktheplanet.cfb.bitcointiler;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -7,30 +9,23 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class KeySubmit extends AppCompatActivity {
     public final static String EXTRA_MESSAGE = "bitcoin.hacktheplanet.cfb.bitcointiler.MESSAGE";
 
     Button submitButton;
     EditText publicKey;
+    Context context;
+    Toast toast;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         //Set EditText and Button
-        publicKey = (EditText) findViewById(R.id.key_enter);
         submitButton = (Button) findViewById(R.id.key_submit_button);
 
-        //Set Button listener to submit key
-        submitButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String pkey = publicKey.getText().toString();
-                if (pkey.matches("^[13][a-km-zA-HJ-NP-Z0-9]{26,33}$")) {
-
-                }
-            }
-        });
-
+        context = getApplicationContext();
+        toast = Toast.makeText(context, "Invalid Public Key", Toast.LENGTH_SHORT);
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_key_submit);
@@ -58,13 +53,17 @@ public class KeySubmit extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public boolean buildQR() {
+    public boolean buildQR(View view) {
+        publicKey = (EditText) findViewById(R.id.key_enter);
         String pkey = publicKey.getText().toString();
         if (pkey.matches("^[13][a-km-zA-HJ-NP-Z0-9]{26,33}$")) {
-
+            Intent pi = new Intent(this, MainActivity.class);
+            pi.putExtra(EXTRA_MESSAGE, pkey);
+            startActivity(pi);
+            return true;
         } else {
-            
+            toast.show();
+            return false;
         }
     }
-
 }

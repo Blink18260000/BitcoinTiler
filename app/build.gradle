@@ -28,3 +28,7 @@ dependencies {
 dependencies {
     compile 'org.cyanogenmod:platform.sdk:2.0-SNAPSHOT'
 }
+
+dependencies {
+    compile 'me.dm7.barcodescanner:zxing:1.8.2'
+}
