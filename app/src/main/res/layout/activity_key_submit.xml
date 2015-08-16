@@ -32,4 +32,14 @@
         style="?android:textAppearanceSmall"
         android:text="@string/submit"
         android:onClick="buildQR"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/key_submit_button"
+        android:text="Scan"
+        style="?android:textAppearanceSmall"
+        android:layout_alignTop="@+id/key_submit_button"
+        android:onClick="findQR"
+        />
 </RelativeLayout>
