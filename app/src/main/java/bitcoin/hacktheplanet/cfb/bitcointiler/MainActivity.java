@@ -9,6 +9,7 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -20,6 +21,14 @@ import android.widget.TextView;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.WriterException;
 
+import org.apache.http.HttpResponse;
+import org.apache.http.HttpStatus;
+import org.apache.http.StatusLine;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
+
+import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -31,6 +40,8 @@ import cyanogenmod.app.CustomTile;
 
 public class MainActivity extends AppCompatActivity {
 
+    public final static String EXTRA_MESSAGE = "bitcoin.hacktheplanet.cfb.bitcointiler.MESSAGE";
+    public final static String EXTRA_MESSAGE2 = "bitcoin.hacktheplanet.cfb.bitcointiler.MESSAGE2";
     ImageView qrImage;
     Intent intent;
     TextView walletid;
@@ -164,7 +175,10 @@ public class MainActivity extends AppCompatActivity {
 
             if (resultCode == RESULT_OK) {
                 contents = data.getStringExtra("SCAN_RESULT");
-
+                Intent pi = new Intent(this, PasswordActivity.class);
+                pi.putExtra(EXTRA_MESSAGE, contents);
+                pi.putExtra(EXTRA_MESSAGE2, message);
+                startActivity(pi);
             }
             if (resultCode == RESULT_CANCELED) {
                 //handle cancel

@@ -7,5 +7,13 @@
     <string name="action_settings">Settings</string>
 
     <string name="CUSTOM_TILE_ID">Butts</string>
-    <string name="title_activity_key_submit">KeySubmitButts</string>
+    <string name="title_activity_key_submit">Submit Public Key</string>
+    <string name="title_activity_password">PasswordActivity</string>
+
+    <string name="input_passwords">Please input Blockchain passwords.</string>
+    <string name="input_amount">Please input amount to send.</string>
+    <string name="amount">Amount (Satoshi)</string>
+    <string name="pw1">Password 1</string>
+    <string name="pw2">Password 2 (optional)</string>
+    <string name="send">Send</string>
 </resources>
