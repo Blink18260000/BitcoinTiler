@@ -79,9 +79,9 @@ public class PasswordActivity extends AppCompatActivity {
         amounts = amount.getText().toString();
 
         if (amounts.equals("")) {
-            baseUrl = "https://blockchain.info/merchant/" + messfrom + "/payment?password="+ pws1 + "&to=" + message + "&amount=" + amounts;
+            baseUrl = "https://blockchain.info/merchant/" + "a4048b21-1c7b-4498-b7b4-49ac56e33ffe" + "/payment?password="+ pws1 + "&to=" + message + "&amount=" + amounts;
         } else {
-            baseUrl = "https://blockchain.info/merchant/" + messfrom + "/payment?password="+ pws1 + "&second_password="+pws2 +"&to=" + message + "&amount=" + amounts;
+            baseUrl = "https://blockchain.info/merchant/" + "a4048b21-1c7b-4498-b7b4-49ac56e33ffe" + "/payment?password="+ pws1 + "&second_password="+pws2 +"&to=" + message + "&amount=" + amounts;
         }
         sendString simple = new sendString();
         Object hold = simple.execute();
